@@ -1,0 +1,52 @@
+<p i18n>livreur works!</p>
+<table class="table ">
+    <thead>
+    <tr>
+        <th i18n>id</th>
+        <th i18n>Fullname</th>
+        <th i18n>Email</th>
+        <th i18n>Localization</th>
+        <th i18n>Phone Number</th>
+        <th i18n>Settings</th>
+        <!-- Ajoutez d'autres en-têtes si nécessaires -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let livreurs of livreurs">
+        <td>{{ livreurs.id }}</td>
+       
+        <td><div class="status-circle"  [ngStyle]="{'background-color': livreurs.etat ? '#679273' : '#7D3433'}"></div>&emsp;&emsp;{{ livreurs.fullname }}</td>
+        <td>{{ livreurs.email}}</td>
+        <td>{{ livreurs.localisation}}</td>
+        <td>{{ livreurs.numTel}}</td>
+        <td ><a (click)="editLivreur(livreurs)" ><i class="mdi mdi-pencil" style="font-size: 20px; color :#A1689A; margin-left : 15px;"></i></a>
+             <a (click)="deleteLivreur(livreurs.id)"><i class="mdi mdi-delete" style="font-size: 20px; color: #A1689A;margin-left : 15px;"></i></a>
+             <a (click)="showDetails(livreurs)"><i class="mdi mdi-information" style="font-size: 20px; color :#A1689A;margin-left : 15px;"></i></a>
+        </td>
+    <!-- [routerLink]="['/edit', livreurs.id]"  -->
+        <!-- Ajoutez d'autres colonnes si nécessaires -->
+    </tr>
+   
+    </tbody>
+</table>
+<div *ngIf="editingLivreur">
+    <h3>Modifier Livreur</h3>
+    <form (submit)="saveLivreur(editingLivreur.id)">
+        <input [(ngModel)]="editingLivreur.fullname" type="text" placeholder="Fullname"><br>
+        <input [(ngModel)]="editingLivreur.address" type="text" placeholder="Address"><br>
+        <input [(ngModel)]="editingLivreur.localisation" type="text" placeholder="Localisation"><br>
+        <input [(ngModel)]="editingLivreur.numTel" type="text" placeholder="NumTel"><br>
+        <button type="submit">Editer</button> <button mat-button color="primary" (click)="editingLivreur = null">Fermer</button>
+    </form>
+</div>
+<div *ngIf="selectedLivreur">
+    <h3>Détails du Livreur</h3>
+    <p><strong>Fullname:</strong> {{ selectedLivreur.fullname }}</p>
+    <p><strong>Address:</strong> {{ selectedLivreur.address }}</p>
+    <p><strong>Localisation:</strong> {{ selectedLivreur.localisation }}</p>
+    <p><strong>NumTel:</strong> {{ selectedLivreur.numTel }}</p>
+    <p><strong>Email:</strong> {{ selectedLivreur.email }}</p>
+    <p><strong>Etat:</strong> {{ selectedLivreur.etat ? 'Activé' : 'Désactivé' }}</p>
+    <!-- <p><strong>NumTel:</strong> {{ selectedLivreur.numTel }}</p> -->
+    <button mat-button color="primary" (click)="selectedLivreur = null">Fermer</button>
+  </div>

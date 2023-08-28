@@ -1,0 +1,48 @@
+<p i18n>Points Of Sale works!</p>
+<table class="table ">
+    <thead>
+    <tr>
+        <th i18n>id</th>
+        <th i18n>Email</th>
+        <th i18n>Address</th>
+        <th i18n>Phone Number</th>
+        <th i18n>Settings</th>
+        
+        <!-- Ajoutez d'autres en-têtes si nécessaires -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pointDeVente of pointDeVente">
+        <td  i18n>{{ pointDeVente.id }}</td>
+        <td>{{ pointDeVente.email}}</td>
+        <td>{{ pointDeVente.address}}</td>
+        <td>{{ pointDeVente.numTel}}</td>
+        <td ><a (click)="editPointDeVente(pointDeVente)" ><i class="mdi mdi-pencil" style="font-size: 20px; color :#A1689A; margin-left : 15px;"></i></a>
+             <a (click)="deletePointDeVente(pointDeVente.id)"><i class="mdi mdi-delete" style="font-size: 20px; color: #A1689A;margin-left : 15px;"></i></a>
+             <a (click)="showDetails(pointDeVente)"><i class="mdi mdi-information" style="font-size: 20px; color :#A1689A;margin-left : 15px;"></i></a>
+        </td>
+        <!-- Ajoutez d'autres colonnes si nécessaires  -->
+    </tr>
+    </tbody>
+</table>
+<div *ngIf="editingPointDeVente">
+    <h3>Modifier Livreur</h3>
+    <form (submit)="savePointDeVente(editingPointDeVente.id)">
+        <input [(ngModel)]="editingPointDeVente.fullname" type="text" placeholder="Fullname"><br>
+        <input [(ngModel)]="editingPointDeVente.address" type="text" placeholder="Address"><br>
+        <input [(ngModel)]="editingPointDeVente.localisation" type="text" placeholder="Localisation"><br>
+        <input [(ngModel)]="editingPointDeVente.numTel" type="text" placeholder="NumTel"><br>
+        <button type="submit">Editer</button><button mat-button color="primary" (click)="editingPointDeVente = null">Fermer</button>
+    </form>
+</div>
+<div *ngIf="selectedPointDeVente">
+    <h3>Détails du Livreur</h3>
+    <p><strong>Fullname:</strong> {{ selectedPointDeVente.fullname }}</p>
+    <p><strong>Address:</strong> {{ selectedPointDeVente.address }}</p>
+    <p><strong>Localisation:</strong> {{ selectedPointDeVente.localisation }}</p>
+    <p><strong>NumTel:</strong> {{ selectedPointDeVente.numTel }}</p>
+    <p><strong>Email:</strong> {{ selectedPointDeVente.email }}</p>
+    <p><strong>Etat:</strong> {{ selectedPointDeVente.etat ? 'Activé' : 'Désactivé' }}</p>
+    <!-- <p><strong>NumTel:</strong> {{ selectedLivreur.numTel }}</p> -->
+    <button mat-button color="primary" (click)="selectedPointDeVente = null">Fermer</button>
+  </div>

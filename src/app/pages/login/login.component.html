@@ -1,0 +1,50 @@
+
+<div class="container">
+    <div class="screen">
+        <div class="screen__content">
+            <form id="frm" class="login" (ngSubmit)="loginForm.form.valid && onSubmitLogin()" #loginForm="ngForm">
+                <div class="login__field">
+                    <input id="loginName"type="text" class="login__input" placeholder="Email" [(ngModel)]="user.email"  name="email" > 
+                     </div>
+                     
+                <div class="login__field">
+                    <input id="loginPassword" name="password" type="password" class="login__input" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{ standalone: true }">
+                </div>
+                
+                    <button class="button login__submit"  (click)="onSubmitLogin()">
+                        <span class="button__text ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="mdi mdi-check" style="font-size: 20px"></i>&nbsp;&nbsp;&nbsp;Login Now</span>
+                    </button>
+                
+            </form>
+            <div class="social-login">
+                <div class="social-icons d-flex justify-content-md-around">
+                    <a href="https://fr-fr.facebook.com/login.php/" class="button__icon social-login__icon"><i class="mdi mdi-facebook-box" style="font-size: 30px"></i> </a>
+                    <a href="https://accounts.google.com/servicelogin" class="button__icon social-login__icon"><i class="mdi mdi-google-plus-box" style="font-size: 33px"></i></a>
+                    <a href="inscrire" class="button__icon social-login__icon" ><i class="mdi mdi-account-plus" style="font-size: 35px"></i> </a>
+                </div>
+            </div>
+        </div>
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div class="row justify-content-md-center">
+    <div class="col-4">
+        <div class="card" style="width: '18rem'">
+            <div class="card-body">
+                <h5 class="card-title">Backend response</h5>
+                <p class="card-text">Content:</p>
+                <ul>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+ -->

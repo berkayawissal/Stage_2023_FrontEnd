@@ -1,0 +1,95 @@
+<p>commande works!</p>
+    <div class="row">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Total</th>
+                <th>État</th>
+                <th>Description</th>
+                <th>Parametrages</th>
+        
+                <!-- Ajoutez d'autres en-têtes si nécessaires -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let commande of commandes">
+                <td>{{ commande.idCommande }}</td>
+                <td>{{ commande.total }}</td>
+                <td>{{ commande.etat }}</td>
+                <td>{{ commande.description }}</td>
+                <td ><a (click)="editCommande(commande)"><i class="mdi mdi-pencil" style="font-size: 20px; color :#A1689A; margin-left : 15px;"></i></a>
+                  <a (click)="deleteCommande(commande.idCommande)"><i class="mdi mdi-delete" style="font-size: 20px; color: #A1689A;margin-left : 15px;"></i></a>
+                  <a (click)="showDetails(commande)"><i class="mdi mdi-information" style="font-size: 20px; color :#A1689A;margin-left : 15px;"></i></a>
+                </td>
+                <!-- Ajoutez d'autres colonnes si nécessaires -->
+            </tr>
+            </tbody>
+        </table>
+        <div *ngIf="editingCommande">
+          <h3>Modifier Livreur</h3>
+          <form (submit)="saveCommande(editingCommande.idCommande)">
+              <input [(ngModel)]="editingCommande.total" type="text" placeholder="total"><br>
+              <input [(ngModel)]="editingCommande.etat" type="text" placeholder="etat"><br>
+              <input [(ngModel)]="editingCommande.description" type="text" placeholder="description"><br>
+              <button type="submit">Editer</button><button mat-button color="primary" (click)="editingCommande = null">Fermer</button>
+          </form>
+      </div>
+      <div *ngIf="selectedCommande">
+          <h3>Détails du Livreur</h3>
+          <p><strong>total:</strong> {{ selectedCommande.total }}</p>
+          <p><strong>etat:</strong> {{ selectedCommande.etat }}</p>
+          <p><strong>description:</strong> {{ selectedCommande.description }}</p>
+          <p><strong>Livreurs:</strong> <li>{{ selectedCommande.livreurs }}</li></p>
+          
+          <button mat-button color="primary" (click)="selectedCommande = null">Fermer</button>
+        </div>
+        <ul>
+            <li *ngFor="let id of deliveredCommandIds">{{ id }}</li>
+        </ul>
+<h2>Commandes Livrées</h2>
+<div>
+  <label for="etat">État :</label>
+  <select id="etat" [(ngModel)]="selectedEtat">
+    <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
+  </select>
+</div>
+<div>
+  <label for="startDate">Date de début :</label>
+  <input type="date" id="startDate" [(ngModel)]="startDate">
+</div>
+<div>
+  <label for="endDate">Date de fin :</label>
+  <input type="date" id="endDate" [(ngModel)]="endDate">
+</div>
+<button (click)="onFilterButtonClick()">Filtrer</button>
+
+<h3>IDs des commandes livrées :</h3>
+<table class="table " >
+  <thead>
+  <tr>
+      <th>ID</th>
+      <th>Total</th>
+      <th>État</th>
+      <th>Description</th>
+      <th>Date Livreé</th>
+
+      <!-- Ajoutez d'autres en-têtes si nécessaires -->
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let id of deliveredCommandIds">
+      <td>{{ id.idCommande }}</td>
+      <td>{{ id.total }}</td>
+      <td>{{ id.etat }}</td>
+      <td>{{ id.description }}</td>
+      <td>{{ id.dateLivree }}</td>  
+     
+      <!-- Ajoutez d'autres colonnes si nécessaires -->
+  </tr>
+  </tbody>
+</table>
+<!-- <ul>
+  <li *ngFor="let commande of deliveredCommandIds">{{ commande.idCommande }} {{ commande.total }} {{ commande.etat }} {{ commande.description }} {{ commande.dateLivree }}</li>
+</ul> -->
+    </div>  

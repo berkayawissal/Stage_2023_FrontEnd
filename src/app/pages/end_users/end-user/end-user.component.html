@@ -1,0 +1,48 @@
+<p i18n>end-user works!</p>
+<table class="table ">
+    <thead>
+    <tr>
+        <th i18n>id</th>
+        <th i18n>Fullname</th>
+        <th i18n>Email</th>
+        <th i18n>Phone Number</th>
+        <th i18n>Settings</th>
+        
+        <!-- Ajoutez d'autres en-têtes si nécessaires -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let endUser of endUser">
+        <td>{{ endUser.id }}</td>
+        <td>{{ endUser.fullname }}</td>
+        <td>{{ endUser.email}}</td>
+        <td>{{ endUser.numTel}}</td>
+        <td ><a (click)="editEndUser(endUser)" ><i class="mdi mdi-pencil" style="font-size: 20px; color :#A1689A; margin-left : 15px;"></i></a>
+             <a (click)="deleteEndUser(endUser.id)"><i class="mdi mdi-delete" style="font-size: 20px; color: #A1689A;margin-left : 15px;"></i></a>
+             <a (click)="showDetails(endUser)"><i class="mdi mdi-information" style="font-size: 20px; color :#A1689A;margin-left : 15px;"></i></a>
+        </td>
+        <!-- Ajoutez d'autres colonnes si nécessaires -->
+    </tr>
+    </tbody>
+</table>
+<div *ngIf="editingEndUser">
+    <h3>Modifier Livreur</h3>
+    <form (submit)="saveEndUser(editingEndUser.id)">
+        <input [(ngModel)]="editingEndUser.fullname" type="text" placeholder="Fullname"><br>
+        <input [(ngModel)]="editingEndUser.address" type="text" placeholder="Address"><br>
+        <input [(ngModel)]="editingEndUser.localisation" type="text" placeholder="Localisation"><br>
+        <input [(ngModel)]="editingEndUser.numTel" type="text" placeholder="NumTel"><br>
+        <button type="submit">Editer</button><button mat-button color="primary" (click)="editingEndUser = null">Fermer</button>
+    </form>
+</div>
+<div *ngIf="selectedEndUser">
+    <h3>Détails du Livreur</h3>
+    <p><strong>Fullname:</strong> {{ selectedEndUser.fullname }}</p>
+    <p><strong>Address:</strong> {{ selectedEndUser.address }}</p>
+    <p><strong>Localisation:</strong> {{ selectedEndUser.localisation }}</p>
+    <p><strong>NumTel:</strong> {{ selectedEndUser.numTel }}</p>
+    <p><strong>Email:</strong> {{ selectedEndUser.email }}</p>
+    <p><strong>Etat:</strong> {{ selectedEndUser.etat ? 'Activé' : 'Désactivé' }}</p>
+    <!-- <p><strong>NumTel:</strong> {{ selectedLivreur.numTel }}</p> -->
+    <button mat-button color="primary" (click)="selectedEndUser = null">Fermer</button>
+  </div>

@@ -1,0 +1,42 @@
+<div>
+  <div class="container">
+      <div class="screen">
+          <div class="screen__content" >
+              <form class="login " (ngSubmit)="onSubmitRegister()" #loginForm="ngForm">
+                  <div class="login__field ">
+                      <!--<i class="login__icon fas fa-user"></i>-->
+                      <input id="loginName" type="text" class="login__input" placeholder="Email" [(ngModel)]="email" name="email" [ngModelOptions]="{ standalone: true }">
+                      <input id="name" type="text" class="login__input" placeholder="Fullname" [(ngModel)]="name" name="name" [ngModelOptions]="{ standalone: true }">
+                      <!-- <i class="login__icon fas fa-lock"></i>-->
+                      <input id="password" type="password" class="login__input" placeholder="Password" [(ngModel)]="password" name="password" [ngModelOptions]="{ standalone: true }">
+                     
+                      <div *ngFor="let role of roles">
+                        <label>
+                          <input id="roles" type="checkbox" [(ngModel)]="role.selected" name="roles" [value]="role.name">
+                          {{ role.name }}
+                        </label>
+                      </div>
+                   </div>
+
+                  <button class="button login__submit" (click)="addRole()">
+                      <span class="button__text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="mdi mdi-check" style="font-size: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;inscrire</span>
+                  </button>
+              </form>
+              <div class="social-login">
+                  <div class="social-icons d-flex justify-content-md-around">
+                      <a href="https://fr-fr.facebook.com/login.php/" class="button__icon social-login__icon"><i class="mdi mdi-facebook-box" style="font-size: 30px"></i> </a>
+                      <a href="https://accounts.google.com/servicelogin" class="button__icon social-login__icon"><i class="mdi mdi-google-plus-box" style="font-size: 33px"></i></a>
+                      <a href="login" class="button__icon social-login__icon" ><i class="mdi mdi-login-variant" style="font-size: 33px"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="screen__background">
+              <span class="screen__background__shape screen__background__shape4"></span>
+              <span class="screen__background__shape screen__background__shape3"></span>
+              <span class="screen__background__shape screen__background__shape2"></span>
+              <span class="screen__background__shape screen__background__shape1"></span>
+          </div>
+      </div>
+  </div>
+</div>
+

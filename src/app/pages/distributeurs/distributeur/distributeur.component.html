@@ -1,0 +1,50 @@
+<p i18n>Distributors works!</p>
+<table class="table ">
+    <thead>
+    <tr>
+        <th i18n>id</th>
+        <th i18n>Fullname</th>
+        <th i18n>Email</th>
+        <th i18n>Localization</th>
+        <th i18n>Phone Number</th>
+        <th i18n>Settings</th>
+        <!-- Ajoutez d'autres en-têtes si nécessaires -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let distributeur of distributeur">
+        <td>{{ distributeur.id }}</td>
+        <td><div class="status-circle"  [ngStyle]="{'background-color': distributeur.etat ? '#679273' : '#7D3433'}"></div>&emsp;&emsp;{{ distributeur.fullname }}</td>
+        <td>{{ distributeur.email}}</td>
+        <td>{{ distributeur.localisation}}</td>
+        <td>{{ distributeur.numTel}}</td>
+        <td> <a (click)="editDistributeur(distributeur)"><i class="mdi mdi-pencil" style="font-size: 20px; color :#A1689A; margin-left : 15px;"></i></a>
+             <a (click)="deleteDistributeur(distributeur.id)"><i class="mdi mdi-delete" style="font-size: 20px; color: #A1689A;margin-left : 15px;"></i></a>
+             <a (click)="showDetails(distributeur)"><i class="mdi mdi-information" style="font-size: 20px; color :#A1689A;margin-left : 15px;"></i></a>
+        </td>
+        <!-- Ajoutez d'autres colonnes si nécessaires -->
+    </tr>
+    </tbody>
+</table>
+<div *ngIf="editingDistributeur">
+    <h3>Modifier Livreur</h3>
+    <form (submit)="saveDistributeur(editingDistributeur.id)">
+        <input [(ngModel)]="editingDistributeur.fullname" type="text" placeholder="Fullname"><br>
+        <input [(ngModel)]="editingDistributeur.address" type="text" placeholder="Address"><br>
+        <input [(ngModel)]="editingDistributeur.localisation" type="text" placeholder="Localisation"><br>
+        <input [(ngModel)]="editingDistributeur.numTel" type="text" placeholder="NumTel"><br>
+        <button type="submit">Editer</button><button mat-button color="primary" (click)="editingDistributeur = null">Fermer</button>
+    </form>
+</div>
+<div *ngIf="selectedDistributeur">
+    <h3>Détails du Livreur</h3>
+    <p><strong>Fullname:</strong> {{ selectedDistributeur.fullname }}</p>
+    <p><strong>Address:</strong> {{ selectedDistributeur.address }}</p>
+    <p><strong>Localisation:</strong> {{ selectedDistributeur.localisation }}</p>
+    <p><strong>NumTel:</strong> {{ selectedDistributeur.numTel }}</p>
+    <p><strong>Email:</strong> {{ selectedDistributeur.email }}</p>
+    <p><strong>Etat:</strong> {{ selectedDistributeur.etat ? 'Activé' : 'Désactivé' }}</p>
+    <!-- <p><strong>NumTel:</strong> {{ selectedLivreur.numTel }}</p> -->
+    <button mat-button color="primary" (click)="selectedDistributeur = null">Fermer</button>
+  </div>
+
