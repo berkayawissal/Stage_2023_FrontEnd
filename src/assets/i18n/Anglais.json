@@ -1,5 +1,5 @@
 {
-    "Sitetitle": "Angular Multi Language Site",
+    "Sitetitle": "Multi Language Site",
     "Delivery Management ": "Delivery Management",
     "Welcome to my application ":"Welcome to my application ",
     "My Profile": "My Profile",
@@ -38,5 +38,18 @@
     "Start date":"Start date",
     "End date":"End date",
     "Filtered commands":"Filtered commands",
-    "Date Delivered":"Date Delivered"
+    "Date Delivered":"Date Delivered",
+    "Notification Preferences":"Notification Preferences",
+    "Receive Email Notifications":"Receive Email Notifications",
+    "Receive Push Notifications":"Receive Push Notifications",
+    "Theme":"Theme",
+    "Dark Theme":"Dark Theme",
+    "Light Theme":"Light Theme",
+    "Update profile":"Update profile",
+    "Complete your profile":"Complete your profile",
+    "City":"City",
+    "Country":"Country",
+    "Postal Code":"Postal Code",
+    "About Me":"About Me"
+
 }

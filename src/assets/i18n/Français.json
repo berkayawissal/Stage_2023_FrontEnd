@@ -38,5 +38,17 @@
     "Start date":"Date de début",
     "End date":"Date de fin",
     "Filtered commands":"Commandes filtrées",
-    "Date Delivered":"Date de livraison"
+    "Date Delivered":"Date de livraison",
+    "Notification Preferences":"Préférences de notifications",
+    "Receive Email Notifications":"Recevoir des notifications par e-mail",
+    "Receive Push Notifications":"Recevoir des notifications push",
+    "Theme":"Thème",
+    "Dark Theme":"Thème sombre",
+    "Light Theme":"Thème léger" ,
+    "Update profile":"Editer le profile",
+    "Complete your profile":"Complète ton profil",
+    "City":"Ville",
+    "Country":"Pays",
+    "Postal Code":"Code Postal",
+    "About Me":"À propos de moi"
 }

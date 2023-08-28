@@ -1,10 +1,10 @@
-<!-- <div  class="app-container">
+ <div  class="app-container">
     <div class="app-main center">
         <div class="chart-row three">
             <div class="chart-container-wrapper">
                 <div class="chart-container">
                     <div class="chart-info-wrapper">
-                        <h2>Articles disponibles</h2>
+                        <h2>Points de vente disponibles</h2>
                         <span>20.5 K</span>
                     </div>
                     <div class="chart-svg">
@@ -23,7 +23,7 @@
             <div class="chart-container-wrapper">
                 <div class="chart-container">
                     <div class="chart-info-wrapper">
-                        <h2>Categories disponibles</h2>
+                        <h2>Livreurs disponibles</h2>
                         <span>5.5 K</span>
                     </div>
                     <div class="chart-svg">
@@ -53,7 +53,7 @@
                             <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845
                                           a 15.9155 15.9155 0 0 1 0 31.831
                                           a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">90%</text>
+                            <text x="18" y="20.35" class="percentage" >90%</text>
                         </svg>
                     </div>
                 </div>
@@ -63,11 +63,44 @@
             <div class="chart-container-wrapper big">
                 <div class="chart-container">
                     <div class="chart-container-header">
-                        <h2>Meilleur clients</h2>
-                        <span>30 derniers jours</span>
+                        <h2  style="color: #1F262D;">Meilleur clients</h2>
+                        <span  style="color: #1F262D;">30 derniers jours</span>
                     </div>
                     <div class="line-chart">
-                        <canvas id="chart"></canvas>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre de Livraisons</h5>
+                                        <p class="card-text">100</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Livraisons En Cours</h5>
+                                        <p class="card-text">30</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Livraisons Terminées</h5>
+                                        <p class="card-text">70</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Livraisons En Attente</h5>
+                                        <p class="card-text">10</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="chart-data-details">
@@ -78,8 +111,8 @@
             <div class="chart-container-wrapper small">
                 <div class="chart-container">
                     <div class="chart-container-header">
-                        <h2>Acquisitions</h2>
-                        <span href="#">ce mois</span>
+                        <h2  style="color: #1F262D;">Acquisitions</h2>
+                        <span  style="color: #1F262D;">ce mois</span>
                     </div>
                     <div class="acquisitions-bar">
                         <span class="bar-progress rejected" style="width:8%;"></span>
@@ -89,84 +122,27 @@
                     </div>
                     <div class="progress-bar-info">
                         <span class="progress-color applications"></span>
-                        <span class="progress-type">Articles plus vendue</span>
+                        <span class="progress-type">Client satisfait</span>
                         <span class="progress-amount">56%</span>
                     </div>
                     <div class="progress-bar-info">
                         <span class="progress-color shortlisted"></span>
-                        <span class="progress-type">Client satisfait</span>
+                        <span class="progress-type">Client Très Satisfait</span>
                         <span class="progress-amount">31%</span>
                     </div>
                     <div class="progress-bar-info">
                         <span class="progress-color on-hold"></span>
-                        <span class="progress-type">Client  malheureux </span>
+                        <span class="progress-type">Client Insatisfait </span>
                         <span class="progress-amount">8%</span>
                     </div>
                     <div class="progress-bar-info">
                         <span class="progress-color rejected"></span>
-                        <span class="progress-type">Articles rejeter</span>
+                        <span class="progress-type">Client Neutre </span>
                         <span class="progress-amount">5%</span>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
-</div> -->
-<div class="row">
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Nombre de Livraisons</h5>
-                <p class="card-text">100</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Livraisons En Cours</h5>
-                <p class="card-text">30</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Livraisons Terminées</h5>
-                <p class="card-text">70</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Livraisons En Attente</h5>
-                <p class="card-text">10</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Liste des Livraisons -->
-<div class="row">
-    <div class="col-md-12">
-        <h2>Liste des Livraisons</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Destinataire</th>
-                    <th>Statut</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>En Cours</td>
-                </tr>
-                <!-- Ajouter d'autres lignes de livraison -->
-            </tbody>
-        </table>
-    </div>
-</div>
+</div> 

@@ -38,5 +38,18 @@
     "Start date":"Başlangıç tarihi",
     "End date":"Bitiş tarihi",
     "Filtered commands":"Filtrelenmiş komutlar",
-    "Date Delivered":"Teslimat Tarihi"
+    "Date Delivered":"Teslimat Tarihi",
+    "Notification Preferences":"bildirim Tercihleri",
+    "Receive Email Notifications":"E-posta Bildirimleri Alın",
+    "Receive Push Notifications":"Anlık Bildirimler Alma",
+    "Theme":"Tema",
+    "Dark Theme":" Koyu Tema",
+    "Light Theme":"Açık Tema",
+    "Update profile":"Profili Güncelle ",
+    "Complete your profile": "profilinizi tamamlayın",
+    "City":"Şehir",
+    "Country":"Ülke",
+    "Postal Code":"Posta kodu",
+    "About Me": "Hakkımda",
+    "Profile":"Profilimi"
 }
