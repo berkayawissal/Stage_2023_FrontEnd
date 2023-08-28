@@ -1,13 +1,13 @@
-<p>commande works!</p>
+
     <div class="row">
         <table class="table ">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Total</th>
-                <th>État</th>
-                <th>Description</th>
-                <th>Parametrages</th>
+              <th  >{{"id"| translate}}</th>
+                <th>{{"Total"| translate}}</th>
+                <th>{{"Status"| translate}}</th>
+                <th>{{"Description"| translate}}</th>
+                <th>{{"Settings"| translate}}</th>
         
                 <!-- Ajoutez d'autres en-têtes si nécessaires -->
             </tr>
@@ -27,52 +27,55 @@
             </tbody>
         </table>
         <div *ngIf="editingCommande">
-          <h3>Modifier Livreur</h3>
+          <h3> {{"Update for Order with id : "| translate}} {{editingCommande.idCommande}} </h3>
           <form (submit)="saveCommande(editingCommande.idCommande)">
-              <input [(ngModel)]="editingCommande.total" type="text" placeholder="total"><br>
-              <input [(ngModel)]="editingCommande.etat" type="text" placeholder="etat"><br>
-              <input [(ngModel)]="editingCommande.description" type="text" placeholder="description"><br>
-              <button type="submit">Editer</button><button mat-button color="primary" (click)="editingCommande = null">Fermer</button>
+            <label >{{"Total"| translate}} :&emsp;</label>
+              <input [(ngModel)]="editingCommande.total" type="text"><br>
+              <label >{{"Status"| translate}} :&emsp;</label>
+              <input [(ngModel)]="editingCommande.etat" type="text" ><br>
+              <label >{{"Description"| translate}} :&emsp;</label>
+              <input [(ngModel)]="editingCommande.description" type="text"><br>
+              <button type="submit">{{"Update"| translate}}</button><button mat-button color="primary" (click)="editingCommande = null">{{"Cancel"| translate}}</button>
           </form>
       </div>
       <div *ngIf="selectedCommande">
-          <h3>Détails du Livreur</h3>
-          <p><strong>total:</strong> {{ selectedCommande.total }}</p>
-          <p><strong>etat:</strong> {{ selectedCommande.etat }}</p>
-          <p><strong>description:</strong> {{ selectedCommande.description }}</p>
-          <p><strong>Livreurs:</strong> <li>{{ selectedCommande.livreurs }}</li></p>
+          <h3>{{"Details of the Order with id : "| translate}} {{selectedCommande.idCommande}} </h3>
+          <p><strong>{{"Total"| translate}}:</strong> {{ selectedCommande.total }}</p>
+          <p><strong>{{"Status"| translate}}:</strong> {{ selectedCommande.etat }}</p>
+          <p><strong>{{"Description"| translate}}:</strong> {{ selectedCommande.description }}</p>
+          <!-- <p><strong>Livreurs:</strong> <li>{{ selectedCommande.livreurs }}</li></p> -->
           
-          <button mat-button color="primary" (click)="selectedCommande = null">Fermer</button>
+          <button mat-button color="primary" (click)="selectedCommande = null">{{"Cancel"| translate}}</button>
         </div>
         <ul>
             <li *ngFor="let id of deliveredCommandIds">{{ id }}</li>
         </ul>
-<h2>Commandes Livrées</h2>
+<h2>{{"Filter orders"| translate}}</h2>
 <div>
-  <label for="etat">État :</label>
+  <label for="etat">{{"Status"| translate}} :</label>
   <select id="etat" [(ngModel)]="selectedEtat">
     <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
   </select>
 </div>
 <div>
-  <label for="startDate">Date de début :</label>
+  <label for="startDate">{{"Start date"| translate}} :</label>
   <input type="date" id="startDate" [(ngModel)]="startDate">
 </div>
 <div>
-  <label for="endDate">Date de fin :</label>
+  <label for="endDate">{{"End date"| translate}} :</label>
   <input type="date" id="endDate" [(ngModel)]="endDate">
 </div>
-<button (click)="onFilterButtonClick()">Filtrer</button>
+<button (click)="onFilterButtonClick()">{{"Filter"|translate}}</button>
 
-<h3>IDs des commandes livrées :</h3>
+<h3>{{"Filtered commands"| translate}}</h3>
 <table class="table " >
   <thead>
   <tr>
-      <th>ID</th>
-      <th>Total</th>
-      <th>État</th>
-      <th>Description</th>
-      <th>Date Livreé</th>
+    <th>{{"id"| translate}}</th>
+    <th>{{"Total"| translate}}</th>
+    <th>{{"Status"| translate}}</th>
+    <th>{{"Description"| translate}}</th>
+    <th>{{"Date Delivered"|translate}}</th>
 
       <!-- Ajoutez d'autres en-têtes si nécessaires -->
   </tr>

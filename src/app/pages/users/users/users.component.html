@@ -1,12 +1,13 @@
-<p i18n>users works!</p>
+
 <table class="table ">
     <thead>
     <tr>
-        <th i18n>id</th>
-        <th i18n>Fullname</th>
-        <th i18n>Email</th>
-        <th i18n>Roles</th>
-        <th i18n>Settings</th>
+        <th  >{{"id"| translate}}</th>
+        <th  >{{"Fullname"| translate}}</th>
+        <th  >{{"Email"| translate}}</th>
+        <th  >{{"Roles"| translate}}</th>
+        <th  >{{"Settings"| translate}}</th>
+ 
         <!-- Ajoutez d'autres en-têtes si nécessaires -->
     </tr>
     </thead>
@@ -25,26 +26,21 @@
     </tbody>
 </table>
 <div *ngIf="editingUser">
-    <h3>Modifier Livreur</h3>
-    <form (submit)="saveUser(editingUser.id)">
-        <input [(ngModel)]="editingUser.fullname" type="text" placeholder="Fullname"><br>
-        <input [(ngModel)]="editingUser.roles" type="text" placeholder="Role"><br>
-        <input [(ngModel)]="editingUser.email" type="text" placeholder="Email"><br>
-        <!-- <div *ngFor="let role of editingUser.roles">
-            <label>
-              <input id="roles" type="checkbox" [(ngModel)]="role.selected" name="roles" [value]="role.name">
-              {{ role.name }}
-            </label>
-          </div> -->
-        <!-- <input [(ngModel)]="editingUser.numTel" type="text" placeholder="NumTel"><br> -->
-        <button type="submit">Editer</button> <button mat-button color="primary" (click)="editingUser = null">Fermer</button>
+    <h3>{{"Update profile for"| translate}} <strong>{{editingUser.fullname}}</strong></h3>
+      <form (submit)="saveUser(editingUser.id)">        
+        <label >{{"Fullname"| translate}} :&emsp;</label>
+        <input [(ngModel)]="editingUser.fullname" type="text"><br>
+        <label >{{"Roles"| translate}} :&emsp;</label>
+        <input [(ngModel)]="editingUser.roles" type="text"><br>
+        <label >{{"Email"| translate}} :&emsp;</label>
+        <input [(ngModel)]="editingUser.email" type="text"><br>
+        <button type="submit">{{"Update"| translate}}</button> <button mat-button color="primary" (click)="editingUser = null">{{"Cancel"| translate}}</button>
     </form>
 </div>
 <div *ngIf="selectedUser">
-    <h3>Détails du Livreur</h3>
-    <p><strong>Fullname:</strong> {{ selectedUser.fullname }}</p>
-    <p><strong>Email:</strong> {{ selectedUser.email }}</p>
-    <p><strong>Roles:</strong> <ul *ngFor="let role of selectedUser.roles">{{ role.name }}</ul>
+    <h3>{{"Details for"| translate}} <strong>{{ selectedUser.fullname }}</strong></h3>
+    <p><strong>{{"Email"| translate}}:</strong> {{ selectedUser.email }}</p>
+    <p><strong>{{"Roles"| translate}}:</strong> <ul *ngFor="let role of selectedUser.roles">{{ role.name }}</ul>
     
-    <button mat-button color="primary" (click)="selectedUser = null">Fermer</button>
+    <button mat-button color="primary" (click)="selectedUser = null">{{"Cancel"| translate}}</button>
   </div>

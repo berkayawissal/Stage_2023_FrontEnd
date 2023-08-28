@@ -10,11 +10,11 @@ export class AppComponent {
   constructor(
     public translate: TranslateService
   ) {
-    translate.addLangs(['en', 'nl']);
-    translate.setDefaultLang('en');
+    translate.addLangs(['Anglais', 'Turc','Français']);
+      translate.setDefaultLang('Anglais');
   }
-  title = 'applicationGestionDesLivraisons';
   switchLang(lang: string) {
     this.translate.use(lang);
   }
+  
 }

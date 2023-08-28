@@ -22,8 +22,8 @@ export class MenuComponent implements OnInit {
 
   constructor(public translate: TranslateService){
   
-      translate.addLangs(['en', 'nl']);
-      translate.setDefaultLang('en');
+      translate.addLangs(['Anglais', 'Turc','Français']);
+      translate.setDefaultLang('Anglais');
     
     const decodedToken = jwtDecode(this.token.access_token) as DecodedToken;
     this.userEmail = decodedToken.sub || "ADMIN";
